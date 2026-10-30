@@ -417,7 +417,7 @@ function App() {
                     </div>
                     <span className="work-card__tag">Website</span>
                     <h3>ClassCast</h3>
-                    <p>Classcast is a app.</p>
+                    <p>A classroom streaming and casting web platform for live sessions and content sharing.</p>
                     <div className="work-card__links">
                         <a href="https://classcastmjdev.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
@@ -434,7 +434,7 @@ function App() {
                     </div>
                     <span className="work-card__tag">Website</span>
                     <h3>Johnfood Delivery</h3>
-                    <p>Johnfood Delivery website.</p>
+                    <p>A food delivery and ordering website for browsing menus and placing orders online.</p>
                     <div className="work-card__links">
                         <a href="https://johnfoodland.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
