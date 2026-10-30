@@ -403,7 +403,7 @@ function App() {
                     <h3>FitCore Gym Management</h3>
                     <p>A full gym management system with membership tracking, class scheduling, and trainer management.</p>
                     <div className="work-card__links">
-                        <a href="https://fitcoregms.netlify.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
+                        <a href="https://fitcoregyms.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="https://github.com/MerjohnPagente/FITCORE-GYM-MANAGEMENT-SYSTEM" target="_blank" rel="noopener" className="btn-work-outline">Source</a>
                     </div>
                 </article>
