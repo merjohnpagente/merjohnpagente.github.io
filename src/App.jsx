@@ -408,7 +408,7 @@ function App() {
                     </div>
                 </article>
 
-                <article className="work-card" data-category="web" data-reveal>
+                <article className="work-card" data-category="website" data-reveal>
                     <div className="work-card__thumb">
                         <img src="assets/classcast.png" alt="ClassCast" loading="lazy" />
                         <div className="work-card__placeholder" aria-hidden="true">
@@ -416,7 +416,7 @@ function App() {
                             <span>ClassCast</span>
                         </div>
                     </div>
-                    <span className="work-card__tag">Web App</span>
+                    <span className="work-card__tag">Website</span>
                     <h3>ClassCast</h3>
                     <p>Classcast is a app.</p>
                     <div className="work-card__links">
