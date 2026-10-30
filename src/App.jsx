@@ -424,6 +424,23 @@ function App() {
                     </div>
                 </article>
 
+                <article className="work-card" data-category="website" data-reveal>
+                    <div className="work-card__thumb">
+                        <img src="assets/johnfood.png" alt="Johnfood Delivery" loading="lazy" />
+                        <div className="work-card__placeholder" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f4913f" strokeWidth="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h12"/><path d="M6 12h8"/><path d="M6 16h4"/></svg>
+                            <span>Johnfood Delivery</span>
+                        </div>
+                    </div>
+                    <span className="work-card__tag">Website</span>
+                    <h3>Johnfood Delivery</h3>
+                    <p>Johnfood Delivery website.</p>
+                    <div className="work-card__links">
+                        <a href="https://johnfoodland.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
+                        <a href="#" className="btn-work-outline">Source</a>
+                    </div>
+                </article>
+
                 <article className="work-card" data-category="web" data-reveal>
                     <div className="work-card__thumb">
                         <img src="assets/regex.png" alt="Regex Challenge Game" loading="lazy" />
