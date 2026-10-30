@@ -180,8 +180,7 @@ function App() {
                     </a>
                 </div>
             </div>
-            <span className="hero-spark hero-spark--main" aria-hidden="true">✦</span>
-            <span className="hero-spark hero-spark--sm" aria-hidden="true">✦</span>
+            {/* hero spark removed */}
             <span className="hero-plus hero-plus--1" aria-hidden="true">+</span>
             <span className="hero-plus hero-plus--2" aria-hidden="true">+</span>
             <div className="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
