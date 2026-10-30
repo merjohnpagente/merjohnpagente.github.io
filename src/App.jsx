@@ -417,7 +417,7 @@ function App() {
                     </div>
                     <span className="work-card__tag">Website</span>
                     <h3>ClassCast</h3>
-                    <p>A classroom streaming and casting web platform for live sessions and content sharing.</p>
+                    <p>ClassCast is a web-based classroom streaming and casting platform that lets instructors broadcast live sessions, share educational content, and interact with students in real time. Built for online learning, it delivers a smooth and accessible experience for both teachers and learners, making remote classes feel connected and engaging.</p>
                     <div className="work-card__links">
                         <a href="https://classcastmjdev.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
@@ -434,7 +434,7 @@ function App() {
                     </div>
                     <span className="work-card__tag">Website</span>
                     <h3>Johnfood Delivery</h3>
-                    <p>A food delivery and ordering website for browsing menus and placing orders online.</p>
+                    <p>Johnfood Delivery is a food ordering and delivery website where users can browse restaurant menus, discover their favorite meals, and place orders for delivery or pickup. It features an intuitive shopping cart, real-time order tracking, and a seamless checkout experience, making food ordering fast, convenient, and enjoyable.</p>
                     <div className="work-card__links">
                         <a href="https://johnfoodland.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
