@@ -1,7 +1,42 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import scriptRaw from './script.js?raw'
+import ProjectPage, { MissingProject } from './ProjectPage.jsx'
+import { ArrowRightIcon } from './icons.jsx'
+import { getProject } from './projects.js'
+
+function getProjectId(hash) {
+  const match = hash.match(/^#\/project\/([^/?#]+)/)
+  return match ? decodeURIComponent(match[1]) : null
+}
 
 function App() {
+  const [hash, setHash] = useState(() => window.location.hash)
+  const projectId = getProjectId(hash)
+  const project = projectId ? getProject(projectId) : null
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.title} | Merjohn Pagente`
+      window.scrollTo(0, 0)
+      return
+    }
+
+    document.title = 'Merjohn Pagente | Web Developer'
+
+    if (hash && !hash.startsWith('#/')) {
+      const target = document.getElementById(hash.slice(1))
+      if (target) {
+        requestAnimationFrame(() => target.scrollIntoView())
+      }
+    }
+  }, [hash, project])
+
   useEffect(() => {
     const s = document.createElement('script')
     s.textContent = scriptRaw
@@ -152,6 +187,10 @@ function App() {
     </header>
 
     <main id="main">
+    {projectId ? (
+        project ? <ProjectPage project={project} /> : <MissingProject />
+    ) : (
+        <>
 
         {/* HERO */}
         <section className="hero" id="top">
@@ -392,7 +431,7 @@ function App() {
             <div className="work-grid">
                 <article className="work-card" data-category="web" data-reveal>
                     <div className="work-card__thumb">
-                        <img src="assets/fitcore.png" alt="FitCore Gym Management" loading="lazy" />
+                        <img src="assets/fitcore.png" alt="FitCore Gym Management" loading="lazy" className="is-contain" />
                         <div className="work-card__placeholder" aria-hidden="true">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f4913f" strokeWidth="1.5"><rect x="6" y="4" width="12" height="14" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
                             <span>FitCore Gym Management</span>
@@ -401,13 +440,17 @@ function App() {
                     <span className="work-card__tag">Web App</span>
                     <h3>FitCore Gym Management</h3>
                     <p>A full gym management system with membership tracking, class scheduling, and trainer management.</p>
-                    <div className="work-card__links">
+                    <a className="work-about-link" href="#/project/fitcore">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://fitcoregyms.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="https://github.com/MerjohnPagente/FITCORE-GYM-MANAGEMENT-SYSTEM" target="_blank" rel="noopener" className="btn-work-outline">Source</a>
                     </div>
                 </article>
 
-                <article className="work-card" data-category="website" data-reveal>
+                <article className="work-card" data-category="web" data-reveal>
                     <div className="work-card__thumb">
                         <img src="assets/classcast.png" alt="ClassCast" loading="lazy" />
                         <div className="work-card__placeholder" aria-hidden="true">
@@ -415,10 +458,14 @@ function App() {
                             <span>ClassCast</span>
                         </div>
                     </div>
-                    <span className="work-card__tag">Website</span>
+                    <span className="work-card__tag">Offline App</span>
                     <h3>ClassCast</h3>
-                    <p>ClassCast is a web-based classroom streaming and casting platform that lets instructors broadcast live sessions, share educational content, and interact with students in real time. Built for online learning, it delivers a smooth and accessible experience for both teachers and learners, making remote classes feel connected and engaging.</p>
-                    <div className="work-card__links">
+                    <p>ClassCast is an offline classroom casting app. The teacher's phone or laptop becomes the local server; students join over the same Wi-Fi or hotspot and follow the lesson live — no internet, accounts or cloud required.</p>
+                    <a className="work-about-link" href="#/project/classcast">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://classcastmjdev.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
                     </div>
@@ -435,7 +482,11 @@ function App() {
                     <span className="work-card__tag">Website</span>
                     <h3>Johnfood Delivery</h3>
                     <p>Johnfood Delivery is a food ordering and delivery website where users can browse restaurant menus, discover their favorite meals, and place orders for delivery or pickup. It features an intuitive shopping cart, real-time order tracking, and a seamless checkout experience, making food ordering fast, convenient, and enjoyable.</p>
-                    <div className="work-card__links">
+                    <a className="work-about-link" href="#/project/johnfood">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://johnfoodland.vercel.app" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
                     </div>
@@ -452,7 +503,11 @@ function App() {
                     <span className="work-card__tag">Web App</span>
                     <h3>Regex Challenge Game</h3>
                     <p>An interactive regex learning game with progressive levels, real-time pattern testing, and explanations.</p>
-                    <div className="work-card__links">
+                    <a className="work-about-link" href="#/project/regex">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://merjohnpagente.github.io/-regex-challenge-game/" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="https://github.com/MerjohnPagente/regex-challenge-game" target="_blank" rel="noopener" className="btn-work-outline">Source</a>
                     </div>
@@ -468,8 +523,12 @@ function App() {
                     </div>
                     <span className="work-card__tag">Web App</span>
                     <h3>Momentum</h3>
-                    <p>A productivity and habit tracking application to build momentum in daily life.</p>
-                    <div className="work-card__links">
+                    <p>A single-file gym management system for members, memberships, payments and check-ins.</p>
+                    <a className="work-about-link" href="#/project/momentum">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://merjohnpagente.github.io/MOMENTUM/" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
                     </div>
@@ -486,7 +545,11 @@ function App() {
                     <span className="work-card__tag">Web App</span>
                     <h3>Multiple AI</h3>
                     <p>Multi-AI chat interface</p>
-                    <div className="work-card__links">
+                    <a className="work-about-link" href="#/project/multiple-ai">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://merjohns-ai-console-node.onrender.com/" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="#" className="btn-work-outline">Source</a>
                     </div>
@@ -503,7 +566,11 @@ function App() {
                     <span className="work-card__tag">Web App</span>
                     <h3>Gorilla Gym</h3>
                     <p>Flutter-based gym management — Strength · Focus · Discipline. Manages members, billing, trainers, and check-ins.</p>
-                    <div className="work-card__links">
+                    <a className="work-about-link" href="#/project/gorilla-gym">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://merjohnpagente.github.io/gorillagymapp/" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="https://github.com/MerjohnPagente/gorillagymapp" target="_blank" rel="noopener" className="btn-work-outline">Source</a>
                     </div>
@@ -520,7 +587,11 @@ function App() {
                     <span className="work-card__tag">Web App</span>
                     <h3>Spotify</h3>
                     <p>Spotify-inspired streaming UI — dark theme, browse / search / play with YouTube ad-free audio.</p>
-                    <div className="work-card__links">
+                    <a className="work-about-link" href="#/project/spotify">
+                        <span>About this project</span>
+                        <span className="work-about-link__icon" aria-hidden="true"><ArrowRightIcon width="12" height="12" /></span>
+                    </a>
+<div className="work-card__links">
                         <a href="https://merjohnpagente.github.io/spotify/" target="_blank" rel="noopener" className="btn-work">Live Demo ↗</a>
                         <a href="https://github.com/MerjohnPagente/spotify" target="_blank" rel="noopener" className="btn-work-outline">Source</a>
                     </div>
@@ -577,6 +648,8 @@ function App() {
             </div>
         </section>
 
+        </>
+    )}
     </main>
 
     <footer className="site-footer">
