@@ -688,7 +688,7 @@ p { margin: 0; }
 .connect-copy { color: var(--cream-dim); font-size: 1.08rem; line-height: 1.55; max-width: 560px; margin: 0 auto 2.25rem; }
 
 .connect-grid {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line);
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line);
     border: 1px solid var(--line); margin-bottom: 2.5rem;
 }
 
