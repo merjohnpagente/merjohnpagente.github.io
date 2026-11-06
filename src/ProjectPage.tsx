@@ -1,6 +1,11 @@
-import { ArrowLeftIcon, ArrowUpRightIcon } from './icons.jsx'
+import { ArrowLeftIcon, ArrowUpRightIcon } from './icons'
+import type { Project } from './projects'
 
-export default function ProjectPage({ project }) {
+type ProjectPageProps = {
+    project: Project
+}
+
+export default function ProjectPage({ project }: ProjectPageProps) {
     return (
         <article className="project-page">
             <a className="project-back" href="#work">

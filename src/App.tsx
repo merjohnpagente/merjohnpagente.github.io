@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import scriptRaw from './script.js?raw'
-import ProjectPage, { MissingProject } from './ProjectPage.jsx'
-import { ArrowRightIcon } from './icons.jsx'
-import { getProject } from './projects.js'
+import ProjectPage, { MissingProject } from './ProjectPage'
+import { ArrowRightIcon } from './icons'
+import { getProject } from './projects'
 
-function getProjectId(hash) {
+function getProjectId(hash: string) {
   const match = hash.match(/^#\/project\/([^/?#]+)/)
   return match ? decodeURIComponent(match[1]) : null
 }

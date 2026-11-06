@@ -1,4 +1,31 @@
-export const PROJECTS = [
+export type ProjectBackend = {
+    name: string
+    description: string
+    points: string[]
+}
+
+export type ProjectMeta = {
+    label: string
+    value: string
+}
+
+export type Project = {
+    id: string
+    title: string
+    tag: string
+    image: string
+    summary: string
+    fit?: 'contain' | 'cover'
+    about: string
+    stack: string[]
+    backend: ProjectBackend
+    meta: ProjectMeta[]
+    features: string[]
+    demo: string
+    source: string | null
+}
+
+export const PROJECTS: Project[] = [
     {
         id: 'fitcore',
         title: 'FitCore Gym Management',
@@ -276,6 +303,6 @@ export const PROJECTS = [
     },
 ]
 
-export function getProject(id) {
+export function getProject(id: string): Project | null {
     return PROJECTS.find((project) => project.id === id) || null
 }

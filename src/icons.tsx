@@ -1,4 +1,6 @@
-export function ArrowLeftIcon(props) {
+import type { SVGProps } from 'react'
+
+export function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
             <path d="M19 12H5" />
@@ -7,7 +9,7 @@ export function ArrowLeftIcon(props) {
     )
 }
 
-export function ArrowRightIcon(props) {
+export function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
             <path d="M5 12h14" />
@@ -16,7 +18,7 @@ export function ArrowRightIcon(props) {
     )
 }
 
-export function ArrowUpRightIcon(props) {
+export function ArrowUpRightIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
             <path d="M7 17L17 7" />
